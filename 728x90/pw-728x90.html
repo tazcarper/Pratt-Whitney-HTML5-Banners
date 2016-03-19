@@ -1,0 +1,249 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="ad.size" content="width=728,height=90">
+        <title>P&amp;W 728x90</title>
+        <link rel="stylesheet" href="https://pratt.scdn4.secure.raxcdn.com/pw/banners/728x90/css/style.min.css" type="text/css" charset="utf-8">
+    </head>
+    <body>
+        <div id="banner" class="container">
+            <div id="banner_btn">
+            </div>
+            <div id="banner_border">
+            </div>
+            <div id="main_image">
+                <div class="sky"><img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/728x90/images/728x90Sky.jpg" height="90" width="728" alt=""></div>
+            </div>
+            <div class="engine">
+                <div id="motor">
+                    <img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/728x90/images/728x90Blade.png" height="179" width="179" alt="">
+                </div>
+                
+                <div id="minuteHand" class="hand">
+                   <img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/728x90/images/728x90Minute.png" height="57" width="56" alt="">
+                </div>
+                <div id="hourHand" class="hand">
+                    <img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/728x90/images/728x90Hour.png" height="44" width="65" alt="">
+                </div>
+                <div id="clockBG">
+                    <img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/728x90/images/728x90clockBg.png" height="90" width="288" alt="">
+                </div>
+            </div>
+            <div id="mainText">
+                <img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/728x90/images/728x90CopyOne.png" height="70" width="245" alt="">
+            </div>
+            <div id="learnMore">
+                <img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/728x90/images/728x90CopyTwo.png" height="29" width="149" alt="">
+            </div>
+            
+            
+          
+            
+        </div>
+        <script src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/js/greensock-js/src/TweenLite.min.js"></script>
+        <script src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/js/greensock-js/src/CSSPlugin.min.js"></script>
+        <script src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/js/greensock-js/src/EasePack.min.js"></script>
+        <script>
+        var clickTag = "http://www.pw.utc.com/";
+        var globalVar = {};
+        globalVar.saveDiv;
+        globalVar.scaleIt = true;
+        globalVar.onceStars = false;
+        globalVar.time = 10;
+        globalVar.easeing = Quint.easeOut;
+        globalVar.goLegal = false;
+        //adds click
+        function addEvent(evnt, elem, func) {
+        if (elem.addEventListener)  // W3C DOM
+        elem.addEventListener(evnt,func,false);
+        else if (elem.attachEvent) { // IE DOM
+        elem.attachEvent("on"+evnt, func);
+        }
+        else { // No much to do
+        elem[evnt] = func;
+        }
+        }
+        
+        var bannerBtn = document.getElementById("banner_btn");
+        
+        addEvent("click", bannerBtn, ctaClick);
+        // trackers
+        function checkInit() {
+        onInit()
+        }
+        
+        function onInit() {
+        start('#main_image');
+        }
+        
+        //starts animation
+        function start(id) {
+        document.getElementById("banner").style.visibility = "visible";
+        globalVar.saveDiv = id;
+        TweenLite.to(" .sky", 5, {
+        x: 0,
+        css: {
+        scale:1
+        },
+        ease: globalVar.easeing,
+        delay: 0,
+        force3D: true
+        });
+        TweenLite.to(" #motor", 5, {
+        x: 0,
+        css: {
+        
+        rotation: 10000
+        },
+         ease: Power0.easeNone,
+        delay: 0,
+        force3D: true
+        });
+        TweenLite.to(" #motor", 5, {
+        x: 0,
+        css: {
+        scale:1,
+        left:0
+        },
+        ease: globalVar.easeing,
+        delay: 0,
+        force3D: true
+        });
+        TweenLite.to(" #clockBG", 5, {
+        css: {
+        scale:1
+        
+        },
+        
+        ease: globalVar.easeing,
+        delay: 0,
+        force3D: true
+        });
+        TweenLite.to(" #clockBG", 2, {
+        x: 0,
+        css: {
+        opacity:1
+        
+        },
+        force3D: true,
+        ease: globalVar.easeing,
+        delay: 2,
+        
+        });
+        var frameTwo = setTimeout(frame2, 2000);
+        }
+        
+        //animation frame2
+        function frame2() {
+        // console.log("frame 2");
+        TweenLite.to(" #motor", 1, {
+        x: 0,
+        css: {
+        opacity:0
+        
+        },
+        delay: 0,
+        force3D: true
+        });
+        TweenLite.to(" #minuteHand", 2, {
+        x: '-5px',
+        css: {
+        opacity:1,
+        rotation:0,
+        
+        },
+        ease: globalVar.easeing,
+        delay: 0,
+        
+        });
+        TweenLite.to(" #hourHand", 2, {
+        x: 0,
+        css: {
+        opacity:1,
+        rotation:0
+        
+        },
+        ease: globalVar.easeing,
+        delay: 0,
+        
+        });
+        
+        TweenLite.to("#mainText", .5, {
+        opacity: 1,
+        ease: globalVar.easeing,
+        delay: 1,
+        force3D: true
+        });
+        
+        TweenLite.to("#learnMore", .5, {
+        opacity: 1,
+        ease: globalVar.easeing,
+        delay: 1,
+        force3D: true
+        });
+        
+        
+        }
+        
+      
+        
+        
+        
+        //button listener functions
+        function ctaClick() {
+        console.log("cta clicked");
+        window.open(clickTag);
+        }
+        var domReady = function(callback) {
+        var ready = false;
+        var detach = function() {
+        if(document.addEventListener) {
+        document.removeEventListener("DOMContentLoaded", completed);
+        window.removeEventListener("load", completed);
+        } else {
+        document.detachEvent("onreadystatechange", completed);
+        window.detachEvent("onload", completed);
+        }
+        }
+        var completed = function() {
+        if(!ready && (document.addEventListener || event.type === "load" || document.readyState === "complete")) {
+        ready = true;
+        detach();
+        callback();
+        }
+        };
+        if(document.readyState === "complete") {
+        callback();
+        } else if(document.addEventListener) {
+        document.addEventListener("DOMContentLoaded", completed);
+        window.addEventListener("load", completed);
+        } else {
+        document.attachEvent("onreadystatechange", completed);
+        window.attachEvent("onload", completed);
+        var top = false;
+        try {
+        top = window.frameElement == null && document.documentElement;
+        } catch(e) {}
+        if(top && top.doScroll) {
+        (function scrollCheck() {
+        if(ready) return;
+        try {
+        top.doScroll("left");
+        } catch(e) {
+        return setTimeout(scrollCheck, 50);
+        }
+        ready = true;
+        detach();
+        callback();
+        })();
+        }
+        }
+        };
+        domReady(function() {
+        console.log('ready');
+        checkInit()
+        });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="ad.size" content="width=600,height=600">
+        <title>P&amp;W 600x600</title>
+        <link rel="stylesheet" href="https://pratt.scdn4.secure.raxcdn.com/pw/banners/600x600/css/style.min.css" type="text/css" charset="utf-8">
+    </head>
+    <body>
+        <div id="banner" class="container">
+            <div id="banner_btn">
+             </div> 
+            <div id="banner_border">
+            </div>
+            <div id="main_image">
+                <div class="sky">
+                <img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/600x600/images/600x600Sky.jpg" height="600" width="600" alt="">
+                </div>
+            </div>
+            <div class="engine">
+                 <div id="engineContainer">
+                <div id="motor">
+                  <img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/600x600/images/600x600Blade.png" height="210" width="210" alt="">
+                </div>
+               
+                </div>
+                
+                <div id="minuteHand" class="hand">
+                    <img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/600x600/images/600x600Minute.png" height="85" width="76" alt="">
+                </div>
+                <div id="hourHand" class="hand">
+                    <img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/600x600/images/600x600Hour.png" height="50" width="75" alt="">
+                </div>
+                <div id="clockBG">
+                <img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/600x600/images/600x600clockBg.jpg" height="313" width="331" alt="">
+            </div>
+            </div>
+            <div id="mainText">
+                <img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/600x600/images/600x600CopyOne.png" height="83" width="497" alt="">
+            </div>
+            <div id="learnMore">
+                <img src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/600x600/images/600x600CopyTwo.png" height="67" width="576" alt="">
+            </div>
+            <div id="close">
+                X Close
+            </div>
+           
+           
+          
+        </div>
+        <script src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/js/greensock-js/src/TweenLite.min.js"></script>
+        <script src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/js/greensock-js/src/CSSPlugin.min.js"></script>
+        <script src="https://pratt.scdn4.secure.raxcdn.com/pw/banners/js/greensock-js/src/EasePack.min.js"></script>
+        <script>
+        var clickTag = "http://www.pw.utc.com/";
+        var globalVar = {};
+        globalVar.saveDiv;
+        globalVar.scaleIt = true;
+        globalVar.onceStars = false;
+        globalVar.time = 10;
+        globalVar.easeing = Quint.easeOut;
+        globalVar.goLegal = false;
+        //adds click
+        function addEvent(evnt, elem, func) {
+        if (elem.addEventListener)  // W3C DOM
+        elem.addEventListener(evnt,func,false);
+        else if (elem.attachEvent) { // IE DOM
+        elem.attachEvent("on"+evnt, func);
+        }
+        else { // No much to do
+        elem[evnt] = func;
+        }
+        }
+        
+        var bannerBtn = document.getElementById("banner_btn");
+        
+        addEvent("click", bannerBtn, ctaClick);
+        // trackers
+        function checkInit() {
+        onInit()
+        }
+        
+        function onInit() {
+        start('#main_image');
+        }
+     
+        //starts animation
+        function start(id) {
+        document.getElementById("banner").style.visibility = "visible";
+        globalVar.saveDiv = id;
+        TweenLite.to(" .sky", 5, {
+        x: 0,
+        css: {
+        scale:1
+        },
+        ease: globalVar.easeing,
+        delay: 0,
+        force3D: true
+        });
+        TweenLite.to(" #motor", 5, {
+        x: 0,
+        css: {
+       
+       rotation: 10000
+        },
+         ease: Power0.easeNone,
+        delay: 0,
+        force3D: true
+        });
+        
+        TweenLite.to(" #motor", 5, {
+        x: 0,
+        css: {
+        scale:1
+        
+        },
+        ease: globalVar.easeing,
+        delay: 0,
+        force3D: true
+        });
+         
+        TweenLite.to(" #clockBG", 5, {
+        css: {
+           scale:1
+        
+        },
+ 
+        ease: globalVar.easeing,
+        delay: 0,
+        force3D: true
+        });
+        TweenLite.to(" #clockBG", 2, {
+        x: 0,
+        css: {
+        opacity:1
+        
+        },
+       force3D: true,
+        ease: globalVar.easeing,
+        delay: 2,
+        
+        });
+        var frameTwo = setTimeout(frame2, 2000);
+        }
+        
+        //animation frame2
+        function frame2() {
+        // console.log("frame 2");
+         TweenLite.to(" #motor", 1, {
+        x: 0,
+        css: {
+        opacity:0
+        
+        },
+        delay: 0,
+        force3D: true
+        });
+
+        TweenLite.to(" #minuteHand", 2, {
+        x: '-5px',
+        css: {
+        opacity:1,
+        rotation:0,
+        
+        },
+        ease: globalVar.easeing,
+        delay: 0,
+        
+        });
+        TweenLite.to(" #hourHand", 2, {
+        x: 0,
+        css: {
+        opacity:1,
+        rotation:0
+        
+        },
+        ease: globalVar.easeing,
+        delay: 0,
+        
+        });
+         TweenLite.to("#mainText", .5, {
+        opacity: 1,
+        ease: globalVar.easeing,
+        delay: .2,
+        force3D: true
+        });
+        var frameThree = setTimeout(frame3, 1000);
+        }
+        
+        //animation frame3
+        function frame3() {
+        //console.log("frame 3");
+        
+      
+       
+        TweenLite.to("#learnMore", .5, {
+        opacity: 1,
+        ease: globalVar.easeing,
+        delay: 0,
+        force3D: true
+        });
+     
+       }
+        
+        
+        //button listener functions
+        function ctaClick() {
+        console.log("cta clicked");
+        window.open(clickTag);
+        }
+
+        var domReady = function(callback) {
+    document.readyState === "interactive" || document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
+};
+        domReady(function() {
+        console.log('ready');
+        checkInit()
+        });
+        </script>
+    </body>
+</html>
